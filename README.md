@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](https://images.velog.io/images/hyojeong0122/post/da591fd2-8cb1-4980-acd5-57d97574a85b/main.png)
 
-## Available Scripts
+# B3O2
+B형 3명과 O형 2명이 만나 이루어진 팀✨
 
-In the project directory, you can run:
+## 팀원
+- 임수현
+- 홍효정
+- 조연정
+- 백은진
+- 김보경
 
-### `npm start`
+## 사용 스택/툴
+- JavaScript
+- HTML
+- React (Class)
+- React-Router
+- React-Router-DOM
+- CRA
+- Node, npm
+- CSS, SASS
+- ESlint
+- Prettier
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## 작업순서
+- `git branch feature/suhyun` <- 항상 작업하기 전에 자신의 브랜치로 이동!
+- `git pull origin master` 명령어로 최신 코드를 받아온다.
+- 최대한 기능별로 쪼개서 코드를 작성한다.
+- 프로젝트 상위 디렉토리로 가서 `git add .` 명령어로 내가 수정한 코드를 git stage 에 올린다.
+- `git status`로 add가 잘 되었는지 확인한다.
+- `git commit -m "commit message"` <- commit message는 팀원과 상의한 후에 slack 에 공유한다.
+- `git push origin feature/suhyun` <- 본인 브랜치에서 작업한 내용을 원격 리포지토리에 올린다!
