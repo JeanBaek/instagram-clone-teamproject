@@ -1,0 +1,14 @@
+@mixin profile-img {
+  display: inline-block;
+  width: 35px;
+  min-height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ddd;
+}
+
+$theme-color: #fafafa;
+
+* {
+  box-sizing: border-box;
+}
