@@ -3,12 +3,16 @@
 # B3O2
 B형 3명과 O형 2명이 만나 이루어진 팀✨
 
+<br>
+
 ## 팀원
 - 임수현
 - 홍효정
 - 조연정
 - 백은진
 - 김보경
+
+<br>
 
 ## 사용 스택/툴
 - JavaScript
@@ -21,6 +25,8 @@ B형 3명과 O형 2명이 만나 이루어진 팀✨
 - CSS, SASS
 - ESlint
 - Prettier
+
+<br>
 
 ## 작업순서
 - `git branch feature/suhyun` <- 항상 작업하기 전에 자신의 브랜치로 이동!
