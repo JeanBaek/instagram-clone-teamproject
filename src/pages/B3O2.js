@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-export default class B3O2 extends Component {
+class B3O2 extends React.Component {
   render() {
     return (
       <div className="B3O2">
@@ -27,3 +27,5 @@ export default class B3O2 extends Component {
     );
   }
 }
+
+export default B3O2;
