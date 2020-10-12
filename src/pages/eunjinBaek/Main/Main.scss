@@ -221,27 +221,6 @@ section {
                       color: #8e8e8e;
                       padding: 6px 0;
                     }
-
-                    .replyContainer {
-                      .replyList {
-                        li {
-                          justify-content: space-between;
-                          display: flex;
-
-                          div {
-                            span:first-child {
-                              font-weight: bolder;
-                            }
-
-                            button {
-                              cursor: pointer;
-                              /* border: 0px; */
-                              background-color: white;
-                            }
-                          }
-                        }
-                      }
-                    }
                   }
                 }
 

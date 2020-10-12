@@ -125,7 +125,7 @@ class Main extends Component {
                       <div className="userImgOfArticle">
                         <img
                           src="images/eunjinbaek/westaUserImg.jpg"
-                          alt="user profile image"
+                          alt="user profile"
                         />
                       </div>
                       <div className="userNameAndMore">

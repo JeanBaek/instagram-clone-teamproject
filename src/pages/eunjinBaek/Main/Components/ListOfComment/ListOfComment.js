@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./ListOfComment.scss";
 
 class ListOfComment extends Component {
   render() {

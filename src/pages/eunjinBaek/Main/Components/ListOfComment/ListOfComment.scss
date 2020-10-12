@@ -1,0 +1,16 @@
+li {
+  justify-content: space-between;
+  display: flex;
+
+  div {
+    span:first-child {
+      font-weight: bolder;
+    }
+
+    button {
+      cursor: pointer;
+      /* border: 0px; */
+      background-color: white;
+    }
+  }
+}

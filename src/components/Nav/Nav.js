@@ -25,21 +25,28 @@ class Nav extends Component {
                 <img
                   className="firstIcon"
                   src="images/eunjinbaek/instaHomeIcon.png"
+                  alt="Home Icon"
                 />
               </a>
               <a href="/main-eunjin" title="DM">
-                <img className="icons" src="images/eunjinbaek/dmicon.png" />
+                <img
+                  className="icons"
+                  src="images/eunjinbaek/dmicon.png"
+                  alt="DM Icon"
+                />
               </a>
               <a href="/main-eunjin" title="explore">
                 <img
                   className="icons"
                   src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
+                  alt="Explore new feeds Icon"
                 />
               </a>
               <a href="/main-eunjin" title="like">
                 <img
                   className="icons"
                   src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
+                  alt="Like Icon"
                 />
               </a>
               <a href="/main-eunjin" title="user">
