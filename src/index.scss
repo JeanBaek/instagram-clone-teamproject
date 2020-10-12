@@ -1,58 +1,56 @@
-// @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-// * {
-//   font-family: 'Jua', sans-serif !important;
-// }
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
-// body {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-//   height: 100vh;
-//   background: linear-gradient(to right, #E66465, #9198E5);
+.B3O2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: linear-gradient(to right, #e66465, #9198e5);
+  font-family: "Jua", sans-serif !important;
 
-//   h1 {
-//     font-size: 200px;
-//     font-weight: 800;
-//     color: white;
-//     margin-bottom: 20px;
-//   }
+  h1 {
+    font-size: 200px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+  }
 
-//   ul{
-//     position: relative;
+  ul {
+    position: relative;
 
-//     &::before,
-//     &::after{
-//       position: absolute;
-//       top: 50%;
-//       transform: translateY(-50%);
-//       font-size: 260px;
-//       font-family: monospace;
-//       color: #fff;
-//     }
+    // &::before,
+    // &::after {
+    //   position: absolute;
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    //   font-size: 260px;
+    //   font-family: monospace;
+    //   color: #fff;
+    // }
 
-//     &::before{
-//       content: "{";
-//       right: 80%;
-//       opacity: 0.5;
-//     }
+    // &::before {
+    //   content: "{";
+    //   right: 94%;
+    //   opacity: 0.5;
+    // }
 
-//     &::after{
-//       content: "}";
-//       left: 80%;
-//       opacity: 0.5;
-//     }
-//     li {
-//       padding: 12px;
-//       font-size: 30px;
+    // &::after {
+    //   content: "}";
+    //   left: 94%;
+    //   opacity: 0.5;
+    // }
+    li {
+      padding: 12px;
+      font-size: 30px;
 
-//       a {
-//         color: #C7DAED;
-//         &:hover {
-//           color: white;
-//         }
-//       }
-//     }
-//   }
-
-// }
+      a {
+        color: #c7daed;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}

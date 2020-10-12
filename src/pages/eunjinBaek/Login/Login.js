@@ -13,17 +13,18 @@ class Login extends React.Component {
   }
 
   goToMain = () => {
-    this.props.history.push("/main-eunjin");
+    this.state.id.includes("@") && this.state.pw.length >= 8
+      ? this.props.history.push("/main-eunjin")
+      : alert("올바른 로그인 정보를 입력해주세요.");
   };
 
   handleInput = async (event) => {
     const { name, value } = event.target;
-    const { id, pw } = this.state;
     await this.setState({
       [name]: value,
     });
-    console.log(id);
-    console.log(pw);
+
+    const { id, pw } = this.state;
 
     if (id.includes("@") && pw.length >= 8) {
       this.setState({ backgroundColor: "rgb(0,149,246)" });
@@ -41,7 +42,7 @@ class Login extends React.Component {
             <img src="images/eunjinbaek/logo_text.png" alt="instargram_logo" />
           </span>
           <div className="contentsBox">
-            <div className="contents">
+            <form className="contents">
               <div className="loginBox">
                 <input
                   type="text"
@@ -68,7 +69,7 @@ class Login extends React.Component {
                   로그인
                 </button>
               </div>
-            </div>
+            </form>
             <a href="https://www.instagram.com/accounts/password/reset/">
               비밀번호를 잊으셨나요?
             </a>

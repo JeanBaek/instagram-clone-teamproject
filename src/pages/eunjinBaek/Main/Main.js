@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Nav from "../../../components/Nav/Nav";
 import "./Main.scss";
 import ListOfComment from "./Components/ListOfComment/ListOfComment";
 
@@ -17,10 +18,9 @@ class Main extends Component {
     };
   }
 
-  inputComment = (event) => {
-    console.log("나오니?");
+  inputComment = async (event) => {
     const { value } = event.target;
-    this.setState({ inputValue: value });
+    await this.setState({ inputValue: value });
 
     if (value.length > 0) {
       this.setState({ btnColor: "rgb(0,149,246)" });
@@ -36,15 +36,16 @@ class Main extends Component {
       nickname: this.state.myNickname,
       content: this.state.inputValue,
     };
-    console.log(newComment.id);
 
-    this.setState({
-      comments: [...this.state.comments, newComment],
-    });
+    if (this.state.inputValue.length > 0) {
+      this.setState({
+        comments: [...this.state.comments, newComment],
+      });
 
-    this.setState({
-      inputValue: "",
-    });
+      this.setState({
+        inputValue: "",
+      });
+    }
   };
 
   delComment = (e) => {
@@ -60,56 +61,7 @@ class Main extends Component {
   render() {
     return (
       <div className="Main">
-        <nav>
-          <div className="boxInNav">
-            <div className="logo">
-              <a href="/main-eunjin">
-                <img
-                  src="images/eunjinbaek/small_logo.png"
-                  alt="instargram_logo"
-                />
-              </a>
-            </div>
-            <div className="inputbox">
-              <div className="searchIcon" alt="search" />
-              <input type="text" autoCapitalize="none" placeholder="검색" />
-            </div>
-            <div className="iconsBigBox">
-              <div className="iconsSmallBox">
-                <a href="/main-eunjin" title="home">
-                  <img
-                    className="firstIcon"
-                    src="images/eunjinbaek/instaHomeIcon.png"
-                  />
-                </a>
-                <a href="/main-eunjin" title="DM">
-                  <img className="icons" src="images/eunjinbaek/dmicon.png" />
-                </a>
-                <div className="haveMessages">
-                  <div>3</div>
-                </div>
-                <a href="/main-eunjin" title="explore">
-                  <img
-                    className="icons"
-                    src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
-                  />
-                </a>
-                <a href="/main-eunjin" title="like">
-                  <img
-                    className="icons"
-                    src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-                  />
-                </a>
-                <a href="/main-eunjin" title="user">
-                  <img
-                    className="UserIcon"
-                    src="images/eunjinbaek/westaUserImg.jpg"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
+        <Nav />
         <main>
           <section>
             <div className="feeds">
@@ -217,8 +169,16 @@ class Main extends Component {
                           <span>🤍🤍 #westargram</span>
                         </div>
                         <div className="repliesOfPosting">
-                          <div className="replyNums">
+                          <div
+                            className="replyNums"
+                            style={{
+                              display: this.state.comments.length
+                                ? "block"
+                                : "none",
+                            }}
+                          >
                             댓글 <span>{this.state.comments.length}</span>개
+                            모두 보기
                           </div>
                           <div className="replyContainer">
                             <ul className="replyList">
@@ -228,21 +188,6 @@ class Main extends Component {
                                   key={i}
                                   delComment={this.delComment}
                                 />
-                                // <li id={comment.id} key={comment.nickname + i}>delComment
-                                //   <div>
-                                //     <span>{comment.nickname} </span>
-                                //     <span>{comment.content}</span>
-                                //   </div>
-                                //   <div>
-                                //     <button
-                                //       className="delButton"
-                                //       onClick={this.delComment}
-                                //     >
-                                //       Del
-                                //     </button>
-                                //     <button className="likeButton">Like</button>
-                                //   </div>
-                                // </li>
                               ))}
                             </ul>
                           </div>
