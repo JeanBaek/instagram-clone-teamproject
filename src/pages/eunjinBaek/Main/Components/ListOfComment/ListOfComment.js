@@ -3,18 +3,19 @@ import "./ListOfComment.scss";
 
 class ListOfComment extends Component {
   render() {
+    const { comment, delComment } = this.props;
     return (
       <li>
         <div>
-          <span>{this.props.comment.userName} </span>
-          <span>{this.props.comment.content}</span>
+          <span>{comment.userName} </span>
+          <span>{comment.content}</span>
         </div>
         <div>
           <button
-            id={this.props.comment.id}
+            id={comment.id}
             className="delButton"
-            comment={{ comment: this.props.comment }}
-            onClick={this.props.delComment}
+            comment={{ comment: comment }}
+            onClick={delComment}
           >
             Del
           </button>

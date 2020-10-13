@@ -13,7 +13,8 @@ class Login extends React.Component {
   }
 
   goToMain = () => {
-    this.state.id.includes("@") && this.state.pw.length >= 8
+    const { id, pw } = this.state;
+    id.includes("@") && pw.length >= 8
       ? this.props.history.push("/main-eunjin")
       : alert("올바른 로그인 정보를 입력해주세요.");
   };

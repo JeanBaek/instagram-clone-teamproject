@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "../../../components/Nav/Nav";
 import "./Main.scss";
 import ListOfComment from "./Components/ListOfComment/ListOfComment";
+import { FaAppStoreIos } from "react-icons/fa";
 
 class Main extends Component {
   constructor() {
@@ -39,15 +40,16 @@ class Main extends Component {
 
   clickComment = (event) => {
     event.preventDefault();
+    const { myUserName, inputValue, comments } = this.state;
     const newComment = {
       id: Date.now(),
-      userName: this.state.myUserName,
-      content: this.state.inputValue,
+      userName: myUserName,
+      content: inputValue,
     };
 
-    if (this.state.inputValue.length > 0) {
+    if (inputValue.length > 0) {
       this.setState({
-        comments: [...this.state.comments, newComment],
+        comments: [...comments, newComment],
       });
 
       this.setState({
@@ -67,6 +69,96 @@ class Main extends Component {
   };
 
   render() {
+    const STORIES = [
+      {
+        id: 1,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "der_andere_weg님의 프로필 사진",
+        userID: "der_andere_weg",
+      },
+      {
+        id: 2,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "der_andere_weg님의 프로필 사진",
+        userID: "der_andere_weg",
+      },
+      {
+        id: 3,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "der_andere_weg님의 프로필 사진",
+        userID: "der_andere_weg",
+      },
+      {
+        id: 4,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "der_andere_weg님의 프로필 사진",
+        userID: "der_andere_weg",
+      },
+      {
+        id: 5,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "der_andere_weg님의 프로필 사진",
+        userID: "der_andere_weg",
+      },
+      {
+        id: 6,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "der_andere_weg님의 프로필 사진",
+        userID: "der_andere_weg",
+      },
+      {
+        id: 7,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "der_andere_weg님의 프로필 사진",
+        userID: "der_andere_weg",
+      },
+      {
+        id: 8,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "der_andere_weg님의 프로필 사진",
+        userID: "der_andere_weg",
+      },
+    ];
+
+    const FOLLOWINGOFUSERS = [
+      {
+        id: 1,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "Following User",
+        userID: "elon_musk",
+        des: "회원님을 팔로우합니다",
+      },
+      {
+        id: 2,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "Following User",
+        userID: "elon_musk",
+        des: "회원님을 팔로우합니다",
+      },
+      {
+        id: 3,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "Following User",
+        userID: "elon_musk",
+        des: "회원님을 팔로우합니다",
+      },
+      {
+        id: 4,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "Following User",
+        userID: "elon_musk",
+        des: "회원님을 팔로우합니다",
+      },
+      {
+        id: 5,
+        src: "images/eunjinbaek/flower.jpg",
+        alt: "Following User",
+        userID: "elon_musk",
+        des: "회원님을 팔로우합니다",
+      },
+    ];
+
+    const { comments, inputValue, btnColor } = this.state;
     return (
       <div className="Main">
         <Nav />
@@ -77,51 +169,20 @@ class Main extends Component {
                 <div className="stories">
                   <div>
                     <ul>
-                      <li>
-                        <div>
-                          <img
-                            src="images/eunjinbaek/flower.jpg"
-                            alt="der_andere_weg님의 프로필 사진"
-                          />
-                          <div>der_andere_weg</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div>
-                          <img
-                            src="images/eunjinbaek/flower.jpg"
-                            alt="der_andere_weg님의 프로필 사진"
-                          />
-                          <div>flower</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div>
-                          <img
-                            src="images/eunjinbaek/flower.jpg"
-                            alt="der_andere_weg님의 프로필 사진"
-                          />
-                          <div>flower</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div>
-                          <img
-                            src="images/eunjinbaek/flower.jpg"
-                            alt="der_andere_weg님의 프로필 사진"
-                          />
-                          <div>flower</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div>
-                          <img
-                            src="images/eunjinbaek/flower.jpg"
-                            alt="der_andere_weg님의 프로필 사진"
-                          />
-                          <div>flower</div>
-                        </div>
-                      </li>
+                      {STORIES.map((story) => {
+                        return (
+                          <li>
+                            <div>
+                              <img
+                                key={story.id}
+                                src={story.src}
+                                alt={story.alt}
+                              />
+                              <div>{story.userID}</div>
+                            </div>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 </div>
@@ -179,17 +240,16 @@ class Main extends Component {
                         <div className="repliesOfPosting">
                           <div
                             className={
-                              this.state.comments.length
+                              comments.length
                                 ? "actOfReplyNums"
                                 : "deactOfReplyNums"
                             }
                           >
-                            댓글 <span>{this.state.comments.length}</span>개
-                            모두 보기
+                            댓글 <span>{comments.length}</span>개 모두 보기
                           </div>
                           <div className="replyContainer">
                             <ul className="replyList">
-                              {this.state.comments.map((comment, i) => (
+                              {comments.map((comment, i) => (
                                 <ListOfComment
                                   comment={comment}
                                   key={i}
@@ -207,7 +267,7 @@ class Main extends Component {
                         <form className="writeReply">
                           <input
                             onChange={this.inputComment}
-                            value={this.state.inputValue}
+                            value={inputValue}
                             type="text"
                             placeholder="댓글 달기..."
                             name="comment"
@@ -215,9 +275,7 @@ class Main extends Component {
                           <button
                             onClick={this.clickComment}
                             type="submit"
-                            className={
-                              this.state.btnColor ? "activated" : "deactivated"
-                            }
+                            className={btnColor ? "activated" : "deactivated"}
                           >
                             게 시
                           </button>
@@ -248,56 +306,24 @@ class Main extends Component {
                     <div>모두 보기</div>
                   </div>
                   <ul>
-                    <li>
-                      <span className="imgAndStr">
-                        <img src="images/eunjinbaek/flower.jpg" alt="" />
-                        <span>
-                          <div>elon_musk</div>
-                          <div>회원님을 팔로우합니다</div>
-                        </span>
-                      </span>
-                      <span className="follow">팔로우</span>
-                    </li>
-                    <li>
-                      <span className="imgAndStr">
-                        <img src="images/eunjinbaek/flower.jpg" alt="" />
-                        <span>
-                          <div>elon_musk</div>
-                          <div>회원님을 팔로우합니다</div>
-                        </span>
-                      </span>
-                      <span className="follow">팔로우</span>
-                    </li>
-                    <li>
-                      <span className="imgAndStr">
-                        <img src="images/eunjinbaek/flower.jpg" alt="" />
-                        <span>
-                          <div>elon_musk</div>
-                          <div>회원님을 팔로우합니다</div>
-                        </span>
-                      </span>
-                      <span className="follow">팔로우</span>
-                    </li>
-                    <li>
-                      <span className="imgAndStr">
-                        <img src="images/eunjinbaek/flower.jpg" alt="" />
-                        <span>
-                          <div>elon_musk</div>
-                          <div>회원님을 팔로우합니다</div>
-                        </span>
-                      </span>
-                      <span className="follow">팔로우</span>
-                    </li>
-                    <li>
-                      <span className="imgAndStr">
-                        <img src="images/eunjinbaek/flower.jpg" alt="" />
-                        <span>
-                          <div>elon_musk</div>
-                          <div>회원님을 팔로우합니다</div>
-                        </span>
-                      </span>
-                      <span className="follow">팔로우</span>
-                    </li>
+                    {FOLLOWINGOFUSERS.map((follow) => {
+                      return (
+                        <li>
+                          <span className="imgAndStr">
+                            <img
+                              key={follow.id}
+                              src={follow.src}
+                              alt={follow.alt}
+                            />
+                            <span>
+                              <div>{follow.userID}</div>
+                              <div>{follow.des}</div>
+                            </span>
+                          </span>
+                          <span className="follow">팔로우</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
                 <div className="mainRightFooter">
