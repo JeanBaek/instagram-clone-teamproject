@@ -6,7 +6,7 @@ class ListOfComment extends Component {
     return (
       <li>
         <div>
-          <span>{this.props.comment.nickname} </span>
+          <span>{this.props.comment.userName} </span>
           <span>{this.props.comment.content}</span>
         </div>
         <div>

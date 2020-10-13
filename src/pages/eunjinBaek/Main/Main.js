@@ -7,15 +7,23 @@ class Main extends Component {
   constructor() {
     super();
     this.state = {
-      comments: [
-        { id: 1, nickname: "sunny_deoggy", content: "하니 넘귀엽햐" },
-        { id: 2, nickname: "dooreplay", content: "댕댕we에도 올려줘여!!" },
-        { id: 3, nickname: "mmoonnddo", content: "귀여워ㅠㅠ" },
-      ],
-      myNickname: "jean.baek.kor",
+      comments: [],
+      myUserName: "jean.baek.kor",
       inputValue: "",
-      btnColor: "rgb(192,223,253)",
+      btnColor: false,
     };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/eunjinbaek/data.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          comments: res.data,
+        });
+      });
   }
 
   inputComment = async (event) => {
@@ -23,9 +31,9 @@ class Main extends Component {
     await this.setState({ inputValue: value });
 
     if (value.length > 0) {
-      this.setState({ btnColor: "rgb(0,149,246)" });
+      this.setState({ btnColor: true });
     } else {
-      this.setState({ btnColor: "rgb(192,223,253)" });
+      this.setState({ btnColor: false });
     }
   };
 
@@ -33,7 +41,7 @@ class Main extends Component {
     event.preventDefault();
     const newComment = {
       id: Date.now(),
-      nickname: this.state.myNickname,
+      userName: this.state.myUserName,
       content: this.state.inputValue,
     };
 
@@ -170,12 +178,11 @@ class Main extends Component {
                         </div>
                         <div className="repliesOfPosting">
                           <div
-                            className="replyNums"
-                            style={{
-                              display: this.state.comments.length
-                                ? "block"
-                                : "none",
-                            }}
+                            className={
+                              this.state.comments.length
+                                ? "actOfReplyNums"
+                                : "deactOfReplyNums"
+                            }
                           >
                             댓글 <span>{this.state.comments.length}</span>개
                             모두 보기
@@ -202,15 +209,15 @@ class Main extends Component {
                             onChange={this.inputComment}
                             value={this.state.inputValue}
                             type="text"
-                            className="replyInput"
                             placeholder="댓글 달기..."
                             name="comment"
                           />
                           <button
                             onClick={this.clickComment}
                             type="submit"
-                            className="replyButton"
-                            style={{ color: this.state.btnColor }}
+                            className={
+                              this.state.btnColor ? "activated" : "deactivated"
+                            }
                           >
                             게 시
                           </button>

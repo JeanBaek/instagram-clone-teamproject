@@ -1,16 +1,16 @@
-article,
-div,
-footer,
-header,
-main,
-nav,
-section {
-  align-items: stretch;
-  box-direction: normal;
-  flex-direction: column;
-}
-
 .Main {
+  article,
+  div,
+  footer,
+  header,
+  main,
+  nav,
+  section {
+    align-items: stretch;
+    box-direction: normal;
+    flex-direction: column;
+  }
+
   width: 100vw;
   height: 100vh;
   background-color: #fafafa;
@@ -50,7 +50,6 @@ section {
           border: 1px solid #dbdbdb;
           margin: 24px 0;
           padding: 16px 0;
-          width: 100%;
           height: 120px;
           background-color: white;
 
@@ -66,15 +65,13 @@ section {
 
                 li {
                   height: 100%;
-                  display: flex;
                   display: inline-block;
 
                   div {
                     width: 80px;
                     top: 2px;
                     padding: 0 10px;
-                    margin-top: 4px;
-                    margin-bottom: 8px;
+                    margin: 4px 0 8px;
 
                     img {
                       background: 0 0;
@@ -196,7 +193,6 @@ section {
                   padding-bottom: 2px;
                   flex-direction: row;
                   margin-bottom: 16px;
-                  width: 100%;
                   height: 17.3px;
                   align-items: flex-start;
 
@@ -217,9 +213,14 @@ section {
                   }
 
                   .repliesOfPosting {
-                    .replyNums {
+                    .actOfReplyNums {
                       color: #8e8e8e;
                       padding: 6px 0;
+                      display: block;
+                    }
+
+                    .deactOfReplyNums {
+                      display: none;
                     }
                   }
                 }
@@ -258,7 +259,14 @@ section {
                       width: 70px;
                       border: 0px;
                       background-color: white;
-                      color: rgb(191, 224, 253);
+                    }
+
+                    .activated {
+                      color: rgb(0, 149, 246);
+                    }
+
+                    .deactivated {
+                      color: rgb(192, 223, 253);
                     }
                   }
                 }
@@ -279,7 +287,6 @@ section {
         margin-bottom: 30px;
 
         .mainRightBox {
-          width: 100%;
           height: 500px;
           top: 92px;
           position: sticky;
@@ -297,8 +304,7 @@ section {
             }
 
             .mainRightUserName {
-              margin-left: 12px;
-              margin-top: 16px;
+              margin: 16px 0 0 12px;
 
               div:first-child {
                 font-weight: bolder;

@@ -8,7 +8,7 @@ class Login extends React.Component {
     this.state = {
       id: "",
       pw: "",
-      backgroundColor: "rgb(192,223,253)",
+      commentBtn: false,
     };
   }
 
@@ -26,8 +26,8 @@ class Login extends React.Component {
 
     const { id, pw } = this.state;
     id.includes("@") && pw.length >= 8
-      ? this.setState({ backgroundColor: "rgb(0,149,246)" })
-      : this.setState({ backgroundColor: "rgb(192,223,253)" });
+      ? this.setState({ commentBtn: true })
+      : this.setState({ commentBtn: false });
   };
 
   render() {
@@ -60,7 +60,9 @@ class Login extends React.Component {
               <div className="loginBtn">
                 <button
                   onClick={this.goToMain}
-                  style={{ backgroundColor: this.state.backgroundColor }}
+                  className={
+                    this.state.commentBtn ? "activated" : "deactivated"
+                  }
                 >
                   로그인
                 </button>

@@ -1,26 +1,24 @@
 .Nav {
-  width: 100%;
   top: 0;
   height: 57px;
   border-bottom: 1px solid #dbdbdb;
   background-color: white;
   position: fixed;
   margin: 0 auto;
-  box-align: center; /* center 다시 맞추기 */
+  box-align: center;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   z-index: 3;
+  width: 100%;
 
   .boxInNav {
     max-width: 935px;
-    width: 100%;
     height: 57px;
     margin: 0 auto;
     box-align: center;
     align-items: center;
     display: flex;
-    /* flex-flow: row wrap; */
     flex-direction: row;
     justify-content: center;
 
@@ -29,7 +27,6 @@
         height: 29px;
         width: 360px;
         left: 0;
-        /* flex: 0 0 auto; 필요 이유를 모르겠음*/
         align-content: stretch;
         display: flex;
         position: relative;

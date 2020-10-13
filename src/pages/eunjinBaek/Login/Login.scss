@@ -62,16 +62,22 @@
         .loginBtn {
           button {
             display: block;
-            width: 100%;
             width: 268px;
             height: 30px;
             border: 1px solid #d2e8fd;
             border-radius: 3px;
-            background-color: #d2e8fd;
             color: white;
             margin: 8px 40px;
             justify-self: center;
             align-self: center;
+          }
+
+          .deactivated {
+            background-color: rgb(192, 223, 253);
+          }
+
+          .activated {
+            background-color: rgb(0, 149, 246);
           }
         }
       }
