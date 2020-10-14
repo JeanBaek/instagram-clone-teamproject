@@ -20,27 +20,6 @@
   ul {
     position: relative;
 
-    // &::before,
-    // &::after {
-    //   position: absolute;
-    //   top: 50%;
-    //   transform: translateY(-50%);
-    //   font-size: 260px;
-    //   font-family: monospace;
-    //   color: #fff;
-    // }
-
-    // &::before {
-    //   content: "{";
-    //   right: 94%;
-    //   opacity: 0.5;
-    // }
-
-    // &::after {
-    //   content: "}";
-    //   left: 94%;
-    //   opacity: 0.5;
-    // }
     li {
       padding: 12px;
       font-size: 30px;

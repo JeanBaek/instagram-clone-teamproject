@@ -2,6 +2,12 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import "./Login.scss";
 
+// const API = "http://10.58.4.40:8000/user/signup";
+const API = "http://10.58.4.40:8000/user/login";
+const mobile = "010-1234-1234";
+const full_name = "eunjinbaek";
+const username = "jean";
+
 class Login extends React.Component {
   constructor() {
     super();
@@ -12,11 +18,33 @@ class Login extends React.Component {
     };
   }
 
-  goToMain = () => {
+  goToMain = (e) => {
+    e.preventDefault();
     const { id, pw } = this.state;
-    id.includes("@") && pw.length >= 8
-      ? this.props.history.push("/main-eunjin")
-      : alert("올바른 로그인 정보를 입력해주세요.");
+    fetch(API, {
+      method: "POST",
+      body: JSON.stringify({
+        email: id,
+        password: pw,
+        mobile,
+        full_name,
+        username,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("백엔드에서 오는 응답 메세지: ", result);
+        if (result.MESSAGE === "SUCCESS") {
+          this.props.history.push("/main-eunjin");
+          localStorage.setItem("token", result.Authorization);
+        } else if (result.message === "DUPLICATED_EMAIL") {
+          alert("이미 가입된 이메일입니다.");
+        } else if (result.message === "PASSWORD INCORRECT") {
+          alert("올바른 비밀번호를 입력해주세요.");
+        } else {
+          alert("올바른 로그인 정보를 입력해주세요.");
+        }
+      });
   };
 
   handleInput = async (event) => {
@@ -26,14 +54,14 @@ class Login extends React.Component {
     });
 
     const { id, pw } = this.state;
-    id.includes("@") && pw.length >= 8
+    id.includes("@", ".") && pw.length >= 8
       ? this.setState({ commentBtn: true })
       : this.setState({ commentBtn: false });
   };
 
   render() {
     return (
-      <div className="Login">
+      <div className="LoginEunjin">
         <div className="mainBox">
           <span className="logo">
             <img src="images/eunjinbaek/logo_text.png" alt="instargram_logo" />
