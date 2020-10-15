@@ -1,45 +1,45 @@
 .LoginEunjin {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  padding: 150px;
   align-items: center;
   justify-content: center;
-  display: flex;
-  padding: 150px;
   background-color: #fafafa;
   box-sizing: border-box;
-  height: 100vh;
-  width: 100vw;
 
   .mainBox {
+    width: 350px;
+    height: 380px;
+    padding: 10px 0;
     border: 1px solid lightgray;
     border-radius: 1px;
     background-color: white;
-    width: 350px;
-    height: 380px;
     box-sizing: border-box;
     box-align: center;
     align-items: center;
-    padding: 10px 0;
 
     .logo {
       img {
         display: block;
-        margin: 22px auto 12px;
         width: 175px;
         height: 51px;
+        margin: 22px auto 12px;
       }
     }
 
     .contentsBox {
-      margin: 0 0 10px 0;
       width: 348px;
       height: 263px;
+      margin: 0 0 10px 0;
 
       //contents
       .contents {
-        margin: 36px 0 0 0;
+        display: flex;
         width: 348px;
         height: 213px;
+        margin: 36px 0 0 0;
         text-align: center;
-        display: flex;
         flex-flow: column wrap;
 
         .loginBox {
@@ -47,12 +47,12 @@
 
           input {
             display: block;
-            box-sizing: border-box;
             width: 268px;
             height: 38px;
-            border: 1px solid lightgray;
-            border-radius: 3px;
             padding: 9px 8px 7px;
+            border: 1px solid lightgray;
+            box-sizing: border-box;
+            border-radius: 3px;
             background-color: #fafafa;
             justify-self: center;
             align-self: center;
@@ -64,10 +64,10 @@
             display: block;
             width: 268px;
             height: 30px;
-            border: 1px solid #d2e8fd;
-            border-radius: 3px;
-            color: white;
             margin: 8px 40px;
+            border: 1px solid #d2e8fd;
+            color: white;
+            border-radius: 3px;
             justify-self: center;
             align-self: center;
           }
@@ -86,11 +86,11 @@
       a:visited {
         display: block;
         margin: 12px auto 6px;
-        text-decoration: none;
         margin: 12 auto 0;
-        font-size: 12px;
         color: #00376b;
+        font-size: 12px;
         text-align: center;
+        text-decoration: none;
       }
     }
   }

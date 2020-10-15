@@ -11,7 +11,7 @@ class Main extends Component {
       comments: [],
       myUserName: "jean.baek.kor",
       inputValue: "",
-      btnColor: false,
+      isBtnActive: false,
     };
   }
 
@@ -32,9 +32,9 @@ class Main extends Component {
     await this.setState({ inputValue: value });
 
     if (value.length > 0) {
-      this.setState({ btnColor: true });
+      this.setState({ isBtnActive: true });
     } else {
-      this.setState({ btnColor: false });
+      this.setState({ isBtnActive: false });
     }
   };
 
@@ -158,7 +158,7 @@ class Main extends Component {
       },
     ];
 
-    const { comments, inputValue, btnColor } = this.state;
+    const { comments, inputValue, isBtnActive } = this.state;
     return (
       <div className="MainEunjin">
         <Nav />
@@ -275,7 +275,9 @@ class Main extends Component {
                           <button
                             onClick={this.clickComment}
                             type="submit"
-                            className={btnColor ? "activated" : "deactivated"}
+                            className={
+                              isBtnActive ? "activated" : "deactivated"
+                            }
                           >
                             게 시
                           </button>

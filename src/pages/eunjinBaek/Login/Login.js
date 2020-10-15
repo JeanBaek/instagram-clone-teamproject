@@ -36,7 +36,7 @@ class Login extends React.Component {
         console.log("백엔드에서 오는 응답 메세지: ", result);
         if (result.MESSAGE === "SUCCESS") {
           this.props.history.push("/main-eunjin");
-          localStorage.setItem("token", result.Authorization);
+          localStorage.setItem("token", result.AUTHORIZATION);
         } else if (result.message === "DUPLICATED_EMAIL") {
           alert("이미 가입된 이메일입니다.");
         } else if (result.message === "PASSWORD INCORRECT") {
