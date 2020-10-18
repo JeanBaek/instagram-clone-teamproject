@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "src": "images/eunjinbaek/flower.jpg",
+      "alt": "Following User",
+      "userID": "elon_musk",
+      "des": "회원님을 팔로우합니다"
+    },
+    {
+      "id": 2,
+      "src": "images/eunjinbaek/flower.jpg",
+      "alt": "Following User",
+      "userID": "elon_musk",
+      "des": "회원님을 팔로우합니다"
+    },
+    {
+      "id": 3,
+      "src": "images/eunjinbaek/flower.jpg",
+      "alt": "Following User",
+      "userID": "elon_musk",
+      "des": "회원님을 팔로우합니다"
+    },
+    {
+      "id": 4,
+      "src": "images/eunjinbaek/flower.jpg",
+      "alt": "Following User",
+      "userID": "elon_musk",
+      "des": "회원님을 팔로우합니다"
+    },
+    {
+      "id": 5,
+      "src": "images/eunjinbaek/flower.jpg",
+      "alt": "Following User",
+      "userID": "elon_musk",
+      "des": "회원님을 팔로우합니다"
+    }
+  ]
+}

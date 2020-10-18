@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import Nav from "../../../components/Nav/Nav";
 import "./Main.scss";
 import ListOfComment from "./Components/ListOfComment/ListOfComment";
-import { FaAppStoreIos } from "react-icons/fa";
+
+const APIOfReplyData = "http://localhost:3000/data/eunjinbaek/replyData.json";
+const APIOfFollowingUsersData =
+  "http://localhost:3000/data/eunjinbaek/followingUsersData.json";
+const APIOfStoryData = "http://localhost:3000/data/eunjinbaek/storyData.json";
 
 class Main extends Component {
   constructor() {
@@ -12,19 +16,37 @@ class Main extends Component {
       myUserName: "jean.baek.kor",
       inputValue: "",
       isBtnActive: false,
+      stories: [],
+      followingUsers: [],
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/eunjinbaek/data.json", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          comments: res.data,
-        });
-      });
+    Promise.all([
+      fetch(APIOfReplyData, { method: "GET" })
+        .then((res) => res.json())
+        .then((res) => {
+          this.setState({
+            comments: res.data,
+          });
+        }),
+
+      fetch(APIOfFollowingUsersData, { method: "GET" })
+        .then((res) => res.json())
+        .then((res) => {
+          this.setState({
+            followingUsers: res.data,
+          });
+        }),
+
+      fetch(APIOfStoryData, { method: "GET" })
+        .then((res) => res.json())
+        .then((res) => {
+          this.setState({
+            stories: res.data,
+          });
+        }),
+    ]);
   }
 
   inputComment = async (event) => {
@@ -38,8 +60,9 @@ class Main extends Component {
     }
   };
 
-  clickComment = (event) => {
+  addComment = (event) => {
     event.preventDefault();
+
     const { myUserName, inputValue, comments } = this.state;
     const newComment = {
       id: Date.now(),
@@ -69,96 +92,13 @@ class Main extends Component {
   };
 
   render() {
-    const STORIES = [
-      {
-        id: 1,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "der_andere_weg님의 프로필 사진",
-        userID: "der_andere_weg",
-      },
-      {
-        id: 2,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "der_andere_weg님의 프로필 사진",
-        userID: "der_andere_weg",
-      },
-      {
-        id: 3,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "der_andere_weg님의 프로필 사진",
-        userID: "der_andere_weg",
-      },
-      {
-        id: 4,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "der_andere_weg님의 프로필 사진",
-        userID: "der_andere_weg",
-      },
-      {
-        id: 5,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "der_andere_weg님의 프로필 사진",
-        userID: "der_andere_weg",
-      },
-      {
-        id: 6,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "der_andere_weg님의 프로필 사진",
-        userID: "der_andere_weg",
-      },
-      {
-        id: 7,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "der_andere_weg님의 프로필 사진",
-        userID: "der_andere_weg",
-      },
-      {
-        id: 8,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "der_andere_weg님의 프로필 사진",
-        userID: "der_andere_weg",
-      },
-    ];
-
-    const FOLLOWINGOFUSERS = [
-      {
-        id: 1,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "Following User",
-        userID: "elon_musk",
-        des: "회원님을 팔로우합니다",
-      },
-      {
-        id: 2,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "Following User",
-        userID: "elon_musk",
-        des: "회원님을 팔로우합니다",
-      },
-      {
-        id: 3,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "Following User",
-        userID: "elon_musk",
-        des: "회원님을 팔로우합니다",
-      },
-      {
-        id: 4,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "Following User",
-        userID: "elon_musk",
-        des: "회원님을 팔로우합니다",
-      },
-      {
-        id: 5,
-        src: "images/eunjinbaek/flower.jpg",
-        alt: "Following User",
-        userID: "elon_musk",
-        des: "회원님을 팔로우합니다",
-      },
-    ];
-
-    const { comments, inputValue, isBtnActive } = this.state;
+    const {
+      comments,
+      inputValue,
+      isBtnActive,
+      stories,
+      followingUsers,
+    } = this.state;
     return (
       <div className="MainEunjin">
         <Nav />
@@ -169,15 +109,11 @@ class Main extends Component {
                 <div className="stories">
                   <div>
                     <ul>
-                      {STORIES.map((story) => {
+                      {stories.map((story) => {
                         return (
-                          <li>
+                          <li key={story.id}>
                             <div>
-                              <img
-                                key={story.id}
-                                src={story.src}
-                                alt={story.alt}
-                              />
+                              <img src={story.src} alt={story.alt} />
                               <div>{story.userID}</div>
                             </div>
                           </li>
@@ -273,7 +209,7 @@ class Main extends Component {
                             name="comment"
                           />
                           <button
-                            onClick={this.clickComment}
+                            onClick={this.addComment}
                             type="submit"
                             className={
                               isBtnActive ? "activated" : "deactivated"
@@ -308,18 +244,14 @@ class Main extends Component {
                     <div>모두 보기</div>
                   </div>
                   <ul>
-                    {FOLLOWINGOFUSERS.map((follow) => {
+                    {followingUsers.map((follow) => {
                       return (
-                        <li>
+                        <li key={follow.id}>
                           <span className="imgAndStr">
-                            <img
-                              key={follow.id}
-                              src={follow.src}
-                              alt={follow.alt}
-                            />
+                            <img src={follow.src} alt={follow.alt} />
                             <span>
-                              <div>{follow.userID}</div>
-                              <div>{follow.des}</div>
+                              <p>{follow.userID}</p>
+                              <p>{follow.des}</p>
                             </span>
                           </span>
                           <span className="follow">팔로우</span>

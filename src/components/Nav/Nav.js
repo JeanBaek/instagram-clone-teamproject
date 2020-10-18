@@ -1,9 +1,46 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Nav.scss";
 import { FaRegUser } from "react-icons/fa";
 
 class Nav extends Component {
   render() {
+    const ICONS = [
+      {
+        id: 1,
+        path: "/main-eunjin",
+        title: "home",
+        className: "firstIcon",
+        src: "images/eunjinbaek/instaHomeIcon.png",
+        alt: "Home Icon",
+      },
+      {
+        id: 2,
+        path: "/main-eunjin",
+        title: "DM",
+        className: "icons",
+        src: "images/eunjinbaek/dmicon.png",
+        alt: "DM Icon",
+      },
+      {
+        id: 3,
+        path: "/main-eunjin",
+        title: "explore",
+        className: "icons",
+        src:
+          "https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png",
+        alt: "Explore new feeds Icon",
+      },
+      {
+        id: 4,
+        path: "/main-eunjin",
+        title: "like",
+        className: "icons",
+        src:
+          "https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png",
+        alt: "Like Icon",
+      },
+    ];
     return (
       <nav className="Nav">
         <div className="boxInNav">
@@ -21,34 +58,17 @@ class Nav extends Component {
           </div>
           <div className="iconsBigBox">
             <div className="iconsSmallBox">
-              <a href="/main-eunjin" title="home">
-                <img
-                  className="firstIcon"
-                  src="images/eunjinbaek/instaHomeIcon.png"
-                  alt="Home Icon"
-                />
-              </a>
-              <a href="/main-eunjin" title="DM">
-                <img
-                  className="icons"
-                  src="images/eunjinbaek/dmicon.png"
-                  alt="DM Icon"
-                />
-              </a>
-              <a href="/main-eunjin" title="explore">
-                <img
-                  className="icons"
-                  src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
-                  alt="Explore new feeds Icon"
-                />
-              </a>
-              <a href="/main-eunjin" title="like">
-                <img
-                  className="icons"
-                  src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-                  alt="Like Icon"
-                />
-              </a>
+              {ICONS.map((icon) => {
+                return (
+                  <Link key={icon.id} to={icon.path} title={icon.title}>
+                    <img
+                      className={icon.className}
+                      src={icon.src}
+                      alt={icon.alt}
+                    />
+                  </Link>
+                );
+              })}
               <a href="/main-eunjin" title="user">
                 <FaRegUser className="UserIcon" />
               </a>
