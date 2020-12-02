@@ -1,3 +1,5 @@
+(Wecode Bootcamp에서 진행한 팀 프로젝트 코드를 재업로드한 레파지토리입니다.)
+
 ![](https://images.velog.io/images/hyojeong0122/post/da591fd2-8cb1-4980-acd5-57d97574a85b/main.png)
 
 # B3O2
