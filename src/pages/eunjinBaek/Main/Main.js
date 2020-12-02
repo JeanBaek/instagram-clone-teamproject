@@ -187,8 +187,8 @@ class Main extends Component {
                             <ul className="replyList">
                               {comments.map((comment, i) => (
                                 <ListOfComment
-                                  comment={comment}
                                   key={i}
+                                  comment={comment}
                                   delComment={this.delComment}
                                 />
                               ))}
